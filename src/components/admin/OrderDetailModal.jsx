@@ -98,7 +98,7 @@ export default function OrderDetailModal({ order, onClose }) {
           </button>
         )}
         {customer && (
-          
+          <a
             href={whatsappLink(customer.whatsapp, statusMessage)}
             target="_blank" rel="noreferrer"
             className="text-sm font-semibold px-4 py-2 rounded-full flex items-center justify-center whitespace-nowrap btn-admin-outline"
