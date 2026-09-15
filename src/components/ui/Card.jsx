@@ -39,6 +39,8 @@ export function Badge({ children, color = '#0878D1', bg }) {
   );
 }
 
+import { createPortal } from 'react-dom';
+
 export function Modal({ open, onClose, title, children, colors }) {
   if (!open) return null;
   const isDark = !!colors;
@@ -47,12 +49,12 @@ export function Modal({ open, onClose, title, children, colors }) {
     : 'linear-gradient(160deg, #ffffff 0%, #F7FBFE 100%)';
   const text = colors?.text ?? '#071B3F';
   const border = colors?.border ?? '#E1EAF5';
-  return (
+  return createPortal(
     <div
       style={{
         position: 'fixed', inset: 0, background: 'rgba(6,42,103,0.45)',
         display: 'flex', alignItems: 'center', justifyContent: 'center',
-        padding: 16, zIndex: 100,
+        padding: 16, zIndex: 1000,
       }}
       onClick={onClose}
     >
@@ -71,6 +73,7 @@ export function Modal({ open, onClose, title, children, colors }) {
         </div>
         {children}
       </div>
-    </div>
+    </div>,
+    document.body
   );
 }
