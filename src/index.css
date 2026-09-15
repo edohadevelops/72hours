@@ -1,0 +1,143 @@
+@import url('https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Poppins:wght@400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+* { box-sizing: border-box; }
+html, body, #root { height: 100%; }
+body { font-family: 'Poppins', sans-serif; }
+
+/* ============ Signature loader: bubbles bobbling out of a basket ============ */
+.basket-bubble {
+  animation: bubble-bob 2.6s ease-in infinite;
+  transform-origin: center;
+}
+.bb-1 { animation-delay: 0s; }
+.bb-2 { animation-delay: 0.45s; }
+.bb-3 { animation-delay: 0.9s; }
+.bb-4 { animation-delay: 1.3s; }
+.bb-5 { animation-delay: 1.7s; }
+@keyframes bubble-bob {
+  0%   { transform: translate(0, 0) scale(1); opacity: 0.8; }
+  35%  { transform: translate(4px, -22px) scale(1.05); opacity: 0.65; }
+  70%  { transform: translate(-5px, -46px) scale(0.9); opacity: 0.35; }
+  100% { transform: translate(3px, -68px) scale(0.7); opacity: 0; }
+}
+@keyframes suds-spin {
+  to { transform: rotate(360deg); }
+}
+
+/* ============ Glossy / silky surface treatments ============ */
+/* Applied on top of Tailwind utility classes for padding/font/radius —
+   these own background, shadow and hover feel so every "button" across
+   the app reads as one consistent, tactile material. */
+
+.btn-accent {
+  background: linear-gradient(180deg, #FFDF8A 0%, #F5B400 55%, #DE9E00 100%);
+  color: #062A67;
+  box-shadow: 0 3px 10px rgba(245, 180, 0, 0.35), inset 0 1px 0 rgba(255,255,255,0.65), inset 0 -1px 2px rgba(150,100,0,0.15);
+  transition: filter 0.2s cubic-bezier(0.16,1,0.3,1), transform 0.2s cubic-bezier(0.16,1,0.3,1), box-shadow 0.2s cubic-bezier(0.16,1,0.3,1);
+}
+.btn-accent:hover { filter: brightness(1.06); transform: translateY(-1px); box-shadow: 0 5px 14px rgba(245,180,0,0.45), inset 0 1px 0 rgba(255,255,255,0.7); }
+.btn-accent:active { transform: translateY(0); filter: brightness(0.97); }
+
+.btn-primary {
+  background: linear-gradient(180deg, #0E4098 0%, #062A67 60%, #041D4D 100%);
+  color: #ffffff;
+  box-shadow: 0 3px 10px rgba(6,42,103,0.35), inset 0 1px 0 rgba(255,255,255,0.18), inset 0 -1px 2px rgba(0,0,0,0.2);
+  transition: filter 0.2s cubic-bezier(0.16,1,0.3,1), transform 0.2s cubic-bezier(0.16,1,0.3,1), box-shadow 0.2s cubic-bezier(0.16,1,0.3,1);
+}
+.btn-primary:hover { filter: brightness(1.1); transform: translateY(-1px); box-shadow: 0 5px 14px rgba(6,42,103,0.45), inset 0 1px 0 rgba(255,255,255,0.22); }
+.btn-primary:active { transform: translateY(0); filter: brightness(0.95); }
+
+.btn-outline {
+  background: linear-gradient(180deg, #ffffff 0%, #F2F8FC 100%);
+  border: 1.5px solid #0A3A8A;
+  color: #062A67;
+  box-shadow: 0 2px 8px rgba(6,42,103,0.08), inset 0 1px 0 rgba(255,255,255,0.8);
+  transition: background 0.2s cubic-bezier(0.16,1,0.3,1), color 0.2s cubic-bezier(0.16,1,0.3,1), transform 0.2s cubic-bezier(0.16,1,0.3,1), box-shadow 0.2s cubic-bezier(0.16,1,0.3,1);
+}
+.btn-outline:hover {
+  background: linear-gradient(180deg, #0E4098 0%, #062A67 100%);
+  color: #ffffff;
+  transform: translateY(-1px);
+  box-shadow: 0 5px 14px rgba(6,42,103,0.3);
+}
+
+.btn-admin-accent {
+  background: linear-gradient(180deg, #FFDF8A 0%, #F5B400 60%, #DE9E00 100%);
+  color: #0A1830;
+  box-shadow: 0 3px 10px rgba(245,180,0,0.3), inset 0 1px 0 rgba(255,255,255,0.6);
+  transition: filter 0.2s cubic-bezier(0.16,1,0.3,1), transform 0.2s cubic-bezier(0.16,1,0.3,1);
+}
+.btn-admin-accent:hover { filter: brightness(1.08); transform: translateY(-1px); }
+
+.btn-admin-primary {
+  background: linear-gradient(180deg, #1DBEF0 0%, #13A9E5 60%, #0C86BA 100%);
+  color: #061225;
+  box-shadow: 0 3px 10px rgba(19,169,229,0.3), inset 0 1px 0 rgba(255,255,255,0.35);
+  transition: filter 0.2s cubic-bezier(0.16,1,0.3,1), transform 0.2s cubic-bezier(0.16,1,0.3,1);
+}
+.btn-admin-primary:hover { filter: brightness(1.08); transform: translateY(-1px); }
+
+.btn-admin-outline {
+  background: linear-gradient(180deg, #16305F 0%, #0F2149 100%);
+  border: 1px solid #1E3A6E;
+  color: #DCE8FA;
+  box-shadow: inset 0 1px 0 rgba(255,255,255,0.04);
+  transition: background 0.2s cubic-bezier(0.16,1,0.3,1), transform 0.2s cubic-bezier(0.16,1,0.3,1);
+}
+.btn-admin-outline:hover { background: linear-gradient(180deg, #1B3A70, #132A5C); transform: translateY(-1px); }
+
+/* Glossy cards — public (light) */
+.card-glossy {
+  background: linear-gradient(160deg, #ffffff 0%, #F7FBFE 100%);
+  box-shadow: 0 2px 6px rgba(6,42,103,0.06), 0 14px 28px -12px rgba(6,42,103,0.14);
+  border: 1px solid rgba(225,234,245,0.9);
+}
+
+/* Glossy cards — admin (dark) */
+.card-glossy-dark {
+  background: linear-gradient(160deg, #16305F 0%, #0F2149 100%);
+  box-shadow: 0 2px 8px rgba(0,0,0,0.3), inset 0 1px 0 rgba(255,255,255,0.05);
+  border: 1px solid rgba(30,58,110,0.9);
+}
+
+/* Silky gradient page backgrounds */
+.bg-silk-public {
+  background: linear-gradient(180deg, #F2F8FC 0%, #FFFFFF 55%, #FFFFFF 100%);
+}
+.bg-silk-admin {
+  background: radial-gradient(circle at 20% 0%, #102450 0%, #0A1830 55%);
+}
+
+/* Silky page + step transitions */
+@keyframes page-fade-in {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+.page-fade-in {
+  animation: page-fade-in 0.4s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+/* Scroll-reveal utility */
+.reveal { opacity: 0; transform: translateY(16px); transition: opacity 0.6s ease, transform 0.6s ease; }
+.reveal.reveal-visible { opacity: 1; transform: translateY(0); }
+
+@media (prefers-reduced-motion: reduce) {
+  .basket-bubble, .reveal, .page-fade-in { animation: none !important; transition: none !important; }
+}
+
+@media print {
+  .no-print { display: none !important; }
+}
+
+/* Keep Leaflet's internal control z-index below our sticky header (z-40),
+   and confined to its own map container rather than the page stacking context. */
+.leaflet-pane, .leaflet-top, .leaflet-bottom, .leaflet-control {
+  z-index: 20 !important;
+}
+.leaflet-container {
+  isolation: isolate;
+}
