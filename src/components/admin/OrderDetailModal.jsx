@@ -1,7 +1,7 @@
 import { Modal, Badge } from '../ui/Card';
 import { adminColors, ORDER_STATUSES } from '../../utils/constants';
 import { useContent } from '../../lib/contentStore';
-import { moneyOrPending, formatDateTime, whatsappLink } from '../../utils/format';
+import { money, moneyOrPending, formatDateTime, whatsappLink } from '../../utils/format';
 import StatusTrack from '../ui/StatusTrack';
 import ImageUploadField from '../ui/ImageUploadField';
 
@@ -98,7 +98,7 @@ export default function OrderDetailModal({ order, onClose }) {
           </button>
         )}
         {customer && (
-          <a
+          
             href={whatsappLink(customer.whatsapp, statusMessage)}
             target="_blank" rel="noreferrer"
             className="text-sm font-semibold px-4 py-2 rounded-full flex items-center justify-center whitespace-nowrap btn-admin-outline"
